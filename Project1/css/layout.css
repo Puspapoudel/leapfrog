@@ -1,0 +1,22 @@
+.container{
+    width: 1170px;
+    margin:0 auto;
+}
+.left-container{
+    float:left;
+}
+.right-container{
+    margin-left:20px;
+}
+
+.main-container{
+    float:left;
+    width:555px;
+    margin-left:88px;
+}
+
+
+.right-container .main-container .para p a{
+    color:red;
+    text-decoration: underline;
+}
