@@ -481,6 +481,22 @@ height:333px;
 .footer.title{
     padding-top:40px;
 }
+@media only screen and ( width:768px)
+
+{
+    .content-wrapper.side-bar{
+        display:none;
+        float:none;
+    }
+   
+
+}
+
+
+
+
+
+
 
     
 
