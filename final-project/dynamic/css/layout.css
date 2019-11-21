@@ -1,0 +1,501 @@
+body{
+    background: #f9f9fb;
+
+}
+
+.header-wrapper{
+    background:#212429;
+
+}
+
+.clearfix:after{
+    content:"";
+    display:table;
+    clear:both;
+
+}
+
+.whole-wrapper{
+    background:url("../images/background.png") repeat-x;
+    background: #f9f9fb;
+}
+
+.menu-wrapper{
+    float:left;
+    width:60px;
+
+}
+.logo-wrapper{
+    float:left;
+    width:1150px;
+    text-align: center;
+}
+.icons{
+    float:left;
+    width:auto;
+}
+.icons li{
+    float:left;
+
+}
+.image-wrapper{
+    background:url("../images/bodybuilder.png") no-repeat top left;
+    height: 583px;
+    color: white;
+    
+    padding-left: 50px;
+    
+    
+}
+.content-wrapper{
+    width:1528px;
+    margin:0px auto;
+}
+.subscribe-form{
+    background:#f9f9fb;
+    float:left;
+    padding-top:27px;
+
+}
+
+.subscribe-form input[type=text]{
+    width:448px;
+    height:49px;
+    margin-right:25px;
+    padding-left:28px;
+
+    
+    
+
+}
+.News{
+    padding-top:227px;
+    padding-bottom: 228px;
+}
+.hover li a{
+    float:left;
+    color:white;
+    padding-right:52px;
+}
+.signup{
+    float:left;
+    width:218px;
+    padding-top:27px;
+    padding-left:29px;
+}
+.subscribe-form input[type=submit]{
+    height:49px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left:40px;
+    padding-right:40px;
+    width:227px;
+    background-color:#212121;
+    color:white;
+
+
+}
+.main-content{
+    float:left;
+    width: 1137px;
+    background-color: #ffffff;
+}
+.container{
+    position:relative;
+    margin-top:69px;
+    width: 100%;
+
+    
+    
+
+}
+.pin{
+    position:absolute;
+    right: 0px;
+    top:0px;
+}
+.side-bar{
+    float: right;
+    width:338px;
+    margin-left:32px;
+    padding-top:86px;
+    background-color: #ffffff;
+}
+.travel-image{
+    /* margin-left: -245px; */
+    width:100%;
+    overflow:hidden;
+    position: relative;
+}
+
+.search-wrapper input[type=text]{
+    width:245px;
+    height:50px;
+
+
+
+}
+.search-wrapper input[type=submit]{
+    width:57px;
+    height:57px;
+    background:url("../images/search.png") no-repeat;
+    margin-left:-6px;
+    
+}
+.overlap-image{
+    position:absolute;
+    left:536px;
+    bottom:-15px;
+
+}
+.travel-wrapper{
+    text-align: center;
+    padding-top:57px;
+
+}
+.travel-wrapper h2{
+    padding-top:22px;
+}
+.author-date{
+    align-content: center;
+    padding-top:33px;
+    font-size: 20px;
+
+}
+.author-date-wrapper{
+    margin: 0 auto;
+    width: 35%;
+}
+.author{
+    float:left;
+    padding-right:15px;
+    
+}
+.paragraph-content{
+    padding-top:43px;
+    font-size:25px;
+    padding-left:38px;
+}
+.read-content{
+    text-align: center;
+    color:black;
+    padding-top:48px;
+
+}
+.review-wrapper ul li{
+    float:left;
+    padding-left:38px;
+    padding-right:36px;
+
+}
+.media-icon ul li{
+    float:right;
+    width:42px;
+
+
+}
+.read-wrapper a{
+    border-left:1px solid black;
+    border-right:1px solid black;
+
+
+}
+.social-media {
+    padding-top:78px;
+}
+.adventure-image{
+    padding-top:94px;
+}
+.gallery-image{
+    margin-left:536px;
+    margin-top:-18px;
+    
+}
+.fashion-wrapper{
+    text-align: center;
+    padding-top:57px;
+    padding-top:45px;
+}
+.fashion-wrapper h2{
+    padding-top:30px;
+    
+
+}
+.name{
+    float:left;
+    padding-right:15px;
+}
+.author-history-wrapper{
+    margin: 0 auto;
+    width: 35%;
+}
+.author-history{
+    align-content: center;
+    padding-top:33px;
+    font-size: 20px;
+
+}
+.text-content{
+    padding-top:43px;
+    font-size:25px;
+    padding-left:38px;
+}
+.more-wrapper a{
+    border-left:1px solid black;
+    border-right:1px solid black;
+
+
+}
+.more-content{
+    text-align: center;
+    color:black;
+    padding-top:48px;
+}
+.media {
+    padding-top:78px;
+}
+.social-icon ul li{
+    float:left;
+    width:42px;
+}
+.context-wrapper ul li{
+    float:left;
+    padding-left:38px;
+    padding-right:36px;
+
+}
+.social-icon{
+    float:right;
+}
+.lifestyle-wrapper{
+background:#131d1c;
+height:333px;
+}
+.lifestyle-wrapper p{
+    color:white;
+}
+.style{
+    text-align: center;
+}
+.lifestyle-wrapper{
+    margin-top:93px;
+}
+.lifestyle-wrapper p {
+    padding-top: 84px;
+    padding-left:61px;
+}
+.quote-image{
+    padding-top:60px;
+}
+.quote-content{
+    margin-left:536px;
+    margin-top:-22px;
+        
+}
+.article-tag{
+    text-align: center;
+    padding-top:57px;
+    padding-top:45px;
+}
+.article-tag h2{
+    padding-top:30px;
+    padding-left:58px;
+}
+.author-name-wrapper{
+    margin: 0 auto;
+    width: 35%;
+}
+.profile{
+    float:left;
+    padding-right:15px;
+}
+.author-name{
+    align-content: center;
+    padding-top:33px;
+    font-size: 20px;
+}
+.review-text{
+    padding-top:43px;
+    font-size:25px;
+    padding-left:38px;
+}
+
+.sound-cloud{
+    padding-top:94px;
+}
+.logo-image{
+    position:absolute;
+    left:536px;
+    bottom:-15px;
+
+}
+.freebanders-wrapper{
+    background:#000000;
+    height:243px;
+
+}
+.freebanders-wrapper p{
+    color:white;
+}
+.freebanders-wrapper{
+    margin-top:100px;
+}
+.freebanders-wrapper p {
+    text-align: center;
+    padding-top:92px;
+}
+.link p a {
+    color:white;
+    padding-left:24px;
+
+}
+.categories-header{
+    text-align: center;
+    padding-top:5px;
+}
+.categories-content ul li{
+    padding-top: 40px;
+    border-bottom: 1px solid #f7f7f7;
+    padding-bottom: 41px;
+    height: 5px;
+}
+.categories-content ul li .category{
+    float: left;
+    width: 80%;
+    padding-left:28px;
+    
+}
+.categories-content ul li .number{
+    float: right;
+    width: 8%;
+}
+/* footer pattern */
+.footer-container{
+    width: 100%;
+    background: #212429;
+    height: 320px;
+    margin-top:64px
+}
+.footer-container-wrapper{
+    margin:0 auto;
+    width: 1527px;
+    height: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.footer-blog-part{
+    float: left;
+    width:370px;
+    height: 50px;
+}
+.footer-tweets-part{
+    float: left;
+    margin-left: 29px;
+    padding-bottom:44px;
+    
+    
+    height: 50px;
+}
+.footer-insta-part{
+    float: left;
+    height: 50px;
+    margin-left: 29px;
+}
+.footer-comment-part{
+    float: left;
+    
+    
+    height: 50px;
+    margin-left: 24px;
+
+
+}
+
+.footer-title{
+    padding-top: 55px;
+    color:white;
+
+    
+}
+
+.footer-blog-part p{
+    padding-bottom: 10px;
+    color:white;
+}
+.twitter-icon{
+    width: 14px;
+    margin-right: 5px;
+    float: left;
+}
+.email{
+    padding-bottom: 21px;
+}
+.twitter-content{
+    width: 345px;
+    float: right;
+    font-family: 'Allerta';
+    font-size: 14px;
+    color: #bfc0c3;
+}
+.tweet-list li{
+    padding-bottom: 30%;
+}
+
+.grid-col{
+    float: left;
+    width: 121px;
+}
+.below-footer{
+    height: 30px;
+    width: 100%;
+    background: #17191c;
+}
+.below-footer-wrapper{
+    margin:0 auto;
+    width: 45.78%;
+    height: 30px;
+    font-size: 12px;
+    color:#747577;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+.copyright{
+    float: left;
+    width: 60%;
+}
+.menu-list{
+    float: left;
+    width: 40%;
+}
+.menu-list li {
+    display: inline;
+}
+.menu-list li a{
+    text-decoration: none;
+    color:#747577;
+
+}
+.menu-list li:before{
+    content: "|";
+}
+.footer.title{
+    padding-top:40px;
+}
+
+    
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+    
+
