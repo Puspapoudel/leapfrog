@@ -1,4 +1,4 @@
-function Slider(carousel, imageWrapper, previous, next, carouselIndicator, transitionPeriod, timeoutInterval)
+function Slider(carousel, imageWrapper, previous, next, carouselIndicator, transitionPeriod, timeoutInterval){
 this.imageWidth = 800;
 this.indicatorWidth = 10;
 this.indicatorDistance = 10;
@@ -10,7 +10,7 @@ this.previous = previous;
 this.next = next;
 this.carouselIndicator = carouselIndicator;
 this.imageArray = Array.from(this.imageWrapper.children);
-var indicator = carouselIndicator.getElementsByTagName('ul')[0];
+this.indicator = carouselIndicator.getElementsByTagName('ul')[0];
 
 var that = this;
 this.previous.onclick = function(){
@@ -28,7 +28,7 @@ this.indicator.onclick = function(){
     clearTimeout(that.timeout);
     e.target.classList.add('active');
     var curr = e.target.getAttribute('id');
-    that.imageWrapper.style.marginLeft = '-' +
+    that.imageWrapper.style.marginLeft = '-'+ (that.imageWidth * that.currentIndex) + 'px';
     that.imageArray[curr].style.display = "block";
     that.imageArray[curr].classList.add("active");
     that.timeout = setTimeout(that.autoSlide, that.timeoutInterval);
@@ -73,7 +73,20 @@ this.backSlide = function() {
     }
     that.addAttributes();
 }
+}
+Slider.prototype.setStyle = function () {
+    this.imageWrapper.style.width = (this.imageWidth * this.imageArray.length) + 'px';
+    this.carouselIndicator.style.width = (this.indicatorWidth * this.imageArray.length) + (this.indicatorDistance * (this.imageArray.length - 1)) + 'px';
+    this.indicator.style.width = this.carouselIndicator.style.width;
+    this.imageWrapper.style.transition = 'margin-left ' + this.transitionPeriod + 's';
 
+    for (index in this.imageArray) {
+        this.imageArray[index].setAttribute('id', index);
+        this.imageArray[index].style.left = (this.imageWidth * index) + 'px';
+
+    }
+
+}
 
 Slider.prototype.setUpList = function () {
     for (index in imageArray) {
