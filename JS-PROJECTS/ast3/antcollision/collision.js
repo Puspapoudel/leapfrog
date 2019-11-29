@@ -28,12 +28,12 @@
         this.x = x;
         this.y = y;
       }
-  
+  console.log(this);
       this.boxClicked = function () {
        function removeAnt(){
              this.parentNode.removechild(this);
        }
-       setTimeout(removeAnd.bind(this), 2000)
+      //  setTimeout(removeAnd.bind(this), 2000)
 
         // console.log('boxClicked', this.width);
       }
@@ -44,10 +44,10 @@
       }
       
       this.move = function() {
-        if(this.x < 0 || this.x>480){
+        if(this.x < 0 || this.x>483){
           this.dx=-this.dx;
         }
-        if(this.y< 0 || this.y>480){
+        if(this.y< 0 || this.y>483){
           this.dy=-this.dy;
         }
         this.x += this.dx;
