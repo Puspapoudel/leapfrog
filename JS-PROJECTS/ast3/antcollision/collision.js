@@ -115,9 +115,8 @@
     }
   
     var parentElement = document.getElementById('app');
-  
-    var game = new Game(parentElement, 50);
-game.generateRandomElements();
-
-
+    new Game(parentElement, 10).startGame();
   })();
+
+
+ 
