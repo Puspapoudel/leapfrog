@@ -3,19 +3,20 @@
     function Box(parentElement) {
       this.x = 10;
       this.y = 10;
-      this.dx = 3;
-      this.dy= 3;
+      this.dx = 1;
+      this.dy= 1;
       this.width = 20;
       this.height = 20;
       this.element = null;
       this.parentElement = parentElement;
       var that = this;
   
-      this.init = function () {
+      this.init = function (id) {
         var box = document.createElement('div');
         box.style.height = this.height + 'px';
         box.style.width = this.width + 'px';
         box.classList.add('box');
+        box.setAttribute('id', id);
         this.parentElement.appendChild(box);
         this.element = box;
         this.element.onclick = this.boxClicked.bind(this);
@@ -28,16 +29,13 @@
         this.x = x;
         this.y = y;
       }
-  console.log(this);
+      console.log(this);
       this.boxClicked = function () {
-       function removeAnt(){
-             this.parentNode.removechild(this);
+      console.log('boxClicked', this.width);
+      
        }
       //  setTimeout(removeAnd.bind(this), 2000)
 
-        // console.log('boxClicked', this.width);
-      }
-  
       this.draw = function () {
         this.element.style.left = this.x + 'px';
         this.element.style.top = this.y + 'px';
@@ -54,16 +52,19 @@
         this.y += this.dy;
         this.draw();
       }
+        
+      }
   
       
-    }
+  
+    
     
     function getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
     }
   
     function Game(parentElement, boxCount) {
-      var boxes = [];
+      this.boxes = [];
       var MAX_WIDTH = 500;
       var MAX_HEIGHT = 500;
       this.parentElement = parentElement;
@@ -71,13 +72,13 @@
   
       this.startGame = function() {
         for(var i=0; i < this.boxCount; i++) {
-          var box = new Box(parentElement).init();
+          var box = new Box(parentElement).init(i);
           box.setPostion(
             getRandomArbitrary(0, MAX_WIDTH),
             getRandomArbitrary(0, MAX_HEIGHT)
           )
           box.draw();
-          boxes.push(box);
+          this.boxes.push(box);
         }
   
         setInterval(this.moveBoxes.bind(this), 1000/60)
@@ -96,17 +97,17 @@
   
       this.moveBoxes = function() {
         for(var i=0; i< this.boxCount; i++) {
-          boxes[i].move();
+          this.boxes[i].move();
           // boxes[i].checkCollision(boxes)
           for(var j=0; j< this.boxCount; j++) {
             if(i==j){
               continue;
             }
-            if(this.checkcollision(boxes[i], boxes[j])){
-              boxes[i].dx=-boxes[i].dx;
-              boxes[j].dx=-boxes[j].dx;
-              boxes[i].dy=-boxes[i].dy;
-              boxes[j].dy=-boxes[j].dy;
+            if(this.checkcollision(this.boxes[i], this.boxes[j])){
+              this.boxes[i].dx=-this.boxes[i].dx;
+              this.boxes[j].dx=-this.boxes[j].dx;
+              this.boxes[i].dy=-this.boxes[i].dy;
+              this.boxes[j].dy=-this.boxes[j].dy;
             }
 
           }
@@ -115,8 +116,22 @@
     }
   
     var parentElement = document.getElementById('app');
-    new Game(parentElement, 10).startGame();
-  })();
+    var game = new Game(parentElement, 5);
+game.startGame();
+console.log(game);      
+
+var ants = parentElement.getElementsByTagName('div');
+for (var i = 0; i < ants.length; i++) {
+  ants[i].addEventListener('click', function (e) {
+    e.preventDefault();
+    var id = e.target.parentNode.getAttribute('id');
+  
+    game.boxes.splice(id,1);
+    this.remove(e.target.parentNode);
+
+  })
+}
+})();
 
 
  
