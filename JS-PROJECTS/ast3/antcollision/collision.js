@@ -64,6 +64,7 @@
     }
   
     function Game(parentElement, boxCount) {
+      var interval;
       this.boxes = [];
       var MAX_WIDTH = 500;
       var MAX_HEIGHT = 500;
@@ -81,7 +82,7 @@
           this.boxes.push(box);
         }
   
-        setInterval(this.moveBoxes.bind(this), 1000/60)
+        this.moveBoxes();
       }
 
       this.checkcollision = function(rect1,rect2) {
@@ -96,10 +97,11 @@
       }
   
       this.moveBoxes = function() {
-        for(var i=0; i< this.boxCount; i++) {
+        for(var i=0; i< this.boxes.length; i++) {
+          clearInterval(interval);
           this.boxes[i].move();
           // boxes[i].checkCollision(boxes)
-          for(var j=0; j< this.boxCount; j++) {
+          for(var j=0; j< this.boxes.length; j++) {
             if(i==j){
               continue;
             }
@@ -112,6 +114,7 @@
 
           }
         }
+        interval = setInterval(this.moveBoxes.bind(this), 1000/60)
       }
     }
   
