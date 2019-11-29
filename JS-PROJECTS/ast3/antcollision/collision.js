@@ -116,5 +116,18 @@
   
     var parentElement = document.getElementById('app');
   
-    new Game(parentElement).startGame();
-  })();
+    var game = new Game(parentElement, 50);
+game.generateRandomElements();
+
+var element = parentElement.getElementsByTagName('div');
+for (var i = 0; i < element.length; i++) {
+  element[i].addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log(e.target);
+    // var id = e.target.parentNode.getAttribute('id');
+    // console.log(id);
+    // game.remove(id);
+    // this.remove(e.target.parentNode);
+
+  })
+  }();
