@@ -1,10 +1,13 @@
-function CarGame(startGameButton, gameContainer) {
+function CarGame(startGameButton, gameContainer, highestScore, scoreBoard) {
   this.startGameButton = startGameButton;
+  this.scoreBoard = scoreBoard;
+  this.highestScore = highestScore;
   this.gameContainer = gameContainer;
   this.opponent = null;
   this.playGame = null;
+  this.highest = window.localStorage.getItem('highest') || 0;
   this.frames = 0;
-  this.countTime = 0;
+  this.countTime = 2;
   this.car;
   this.canPlayGame = false;
   this.opponentPositionArray = [110, 260, 410];
@@ -15,12 +18,12 @@ function CarGame(startGameButton, gameContainer) {
     yPosition: 530
   };
   this.obstacleCar = {
-    xPosition: 0,
-    yPosition: 0
+    xPosition: Math.random() - 0.5,
+    yPosition: -1 * (Math.floor(Math.random() * 100))
   };
   this.yPosition = [0, 0, 0];
   this.animFrame;
-  this.delay;
+  //this.delay;
   var setUpGameContainer;
   var that = this;
   const SPEED = 0.5;
@@ -53,9 +56,21 @@ function CarGame(startGameButton, gameContainer) {
 
   this.updateGameAssets = function (opponent, i) {
     if (this.yPosition[i] >= 640) {
-      this.yPosition[i] = -5;
+      this.frames++;
+      console.log(this.frames);
+      this.increaseDifficulty = true;
+      var random = -1 * (Math.floor(Math.random() * 1000));
+      if(random - this.yPosition[i+1] <= 100){
+       random = -1 * (Math.floor(Math.random() * 1000));
+      }
+      this.yPosition[i] = random;
+      this.scoreBoard.innerHTML = this.frames;
     }
-    this.yPosition[i] += 3;
+    if (this.frames % 10 == 0 && this.increaseDifficulty) {
+      this.countTime += 0.5;
+      this.increaseDifficulty=false;
+    }
+    this.yPosition[i] += this.countTime;
     opponent.style.top = this.yPosition[i] + 'px';
   }
 
@@ -166,5 +181,5 @@ var startGameButton = document.getElementById('start-game');
 var gameContainer = document.getElementById('game-container');
 var scoreBoard = document.getElementById('score-board');
 var highestScore = document.getElementsByTagName('span')[0];
-new CarGame(startGameButton, gameContainer);
+new CarGame(startGameButton, gameContainer,highestScore,scoreBoard);
 
