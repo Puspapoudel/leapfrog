@@ -1,0 +1,66 @@
+.game-frame{
+    width: 1000px;
+    height: 640px;
+    background:green;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.game-controls{
+    float: left;
+    width: 200px;
+}
+.game-container{
+    float: left;
+    width: 600px;
+    height: 640px;
+    background: url("../images/background.png") repeat-y;
+    position: relative;
+}
+.start-game{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 300px;
+    font-size: 30px;
+    color: white;
+    padding: 6px;
+    background: linear-gradient( #464646, #666666);
+    border: 2px solid #f6d654;
+    border-radius: 2px;
+    width: 188px;
+}
+
+.player-car{
+    width: 40px;
+    height: 80px;
+    background: url('../images/player.png');
+    position: absolute;
+    top: 530px;
+    left: 260px;
+}
+
+.opponent{
+    width: 40px;
+    height: 80px;
+    background:  url('../images/enemy.png');
+    position: absolute;
+    left: 110px;
+}
+
+.score-board , .highest{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 169px;
+    padding: 6px;
+    font-size: 30px;
+    color: white;
+    background: linear-gradient( #464646, #666666);
+    border: 2px solid #f6d654;
+    border-radius: 2px;
+    text-align: center;
+
+}
+.highest{
+    font-size: 20px;
+    border: none;
+    background: none;
+}

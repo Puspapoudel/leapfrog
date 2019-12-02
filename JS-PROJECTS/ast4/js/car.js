@@ -1,0 +1,170 @@
+function CarGame(startGameButton, gameContainer) {
+  this.startGameButton = startGameButton;
+  this.gameContainer = gameContainer;
+  this.opponent = null;
+  this.playGame = null;
+  this.frames = 0;
+  this.countTime = 0;
+  this.car;
+  this.canPlayGame = false;
+  this.opponentPositionArray = [110, 260, 410];
+  this.obstacleBackgroundArray = ['images/enemy.png', 'images/enemy2.png', 'images/enemy.png'];
+  this.obstacleArray = [];
+  this.playerCar = {
+    xPosition: 260,
+    yPosition: 530
+  };
+  this.obstacleCar = {
+    xPosition: 0,
+    yPosition: 0
+  };
+  this.yPosition = [0, 0, 0];
+  this.animFrame;
+  this.delay;
+  var setUpGameContainer;
+  var that = this;
+  const SPEED = 0.5;
+
+  this.startGameButton.onclick = function (e) {
+    if (that.canPlayGame) {
+      return;
+    }
+    that.canPlayGame = true;
+    setUpGameContainer = new SetUpGameContainer(that.gameContainer);
+    setUpGameContainer.animateBackground();
+    that.startGame();
+  }
+
+  this.setupGameAssets = function () {
+    var opponent = document.createElement('div');
+    opponent.setAttribute('class', 'opponent');
+    this.gameContainer.appendChild(opponent);
+    return opponent;
+  }
+
+  this.drawGameAssets = function (i) {
+    var yPosition = 0;
+    var obstacle = this.setupGameAssets();
+    obstacle.style.background = 'url("' + this.obstacleBackgroundArray[i] + '")';
+    obstacle.style.left = this.opponentPositionArray[i] + 'px';
+    obstacle.style.top = yPosition + 'px';
+    this.obstacleArray.push(obstacle);
+  }
+
+  this.updateGameAssets = function (opponent, i) {
+    if (this.yPosition[i] >= 640) {
+      this.yPosition[i] = -5;
+    }
+    this.yPosition[i] += 3;
+    opponent.style.top = this.yPosition[i] + 'px';
+  }
+
+  this.animateGameAssets = function () {
+    var random = Math.floor(Math.random() * 270) + 100;
+    this.animFrame = requestAnimationFrame(this.animateGameAssets.bind(this));
+    if (this.animFrame % random == 0 && this.obstacleArray.length < 3 && Math.random() < 0.5) {
+      console.log(this.frames % random);
+      this.drawGameAssets(this.obstacleArray.length);
+    }
+    for (var i = 0; i < this.obstacleArray.length; i++) {
+      this.obstacleCar.xPosition = this.opponentPositionArray[i];
+      this.updateGameAssets(this.obstacleArray[i], i);
+      if (this.checkCollision(i)) {
+        if (this.frames > this.highest) {
+          window.localStorage.setItem('highest', that.frames);
+        }
+        this.playGame.resetGame();
+      }
+    }
+  }
+
+  this.checkCollision = function (i) {
+    if (this.playerCar.xPosition < this.obstacleCar.xPosition + 40 &&
+      this.playerCar.xPosition + 40 > this.obstacleCar.xPosition &&
+      this.playerCar.yPosition < this.yPosition[i] + 80 &&
+      this.playerCar.yPosition + 80 > this.yPosition[i]) {
+      return true;
+    }
+  }
+
+  this.startGame = function () {
+    if (this.canPlayGame) {
+      this.animateGameAssets();
+      this.car = setUpGameContainer.positionPlayerCar();
+      this.playGame = new PlayGame(this.car, setUpGameContainer, this);
+    }
+  }
+}
+
+function PlayGame(player, setUpGameContainer, carGame) {
+  this.player = player;
+  this.setUpGameContainer = setUpGameContainer;
+  this.carGame = carGame;
+  this.isCrashed = false;
+  var that = this;
+  document.onkeydown = function (e) {
+    if (!that.isCrashed) {
+      switch (e.which) {
+        case 37:
+          that.carGame.playerCar.xPosition -= 150;
+          break;
+        case 39:
+          that.carGame.playerCar.xPosition += 150;
+          break;
+      }
+      that.isCrashed = that.movePlayer(that.carGame.playerCar.xPosition);
+      if(that.isCrashed){
+        that.resetGame();
+      }
+    }
+    
+  }
+
+  this.resetGame = function () {
+    cancelAnimationFrame(this.setUpGameContainer.animationFrame);
+    cancelAnimationFrame(this.carGame.animFrame);
+    alert("Game Over");
+    location.reload();
+  }
+
+  this.movePlayer = function (position) {
+    if (position < 82 || position > 450) {
+      return true;
+    }
+    this.player.style.left = position + 'px';
+    return false;
+  }
+}
+
+
+function SetUpGameContainer(gameContainer) {
+  this.gameContainer = gameContainer;
+  this.animationFrame;
+  var position = 0;
+
+  this.animateBackground = function () {
+    ++position;
+    this.gameContainer.style.backgroundPosition = '0 ' + position + 'px';
+    this.animationFrame = requestAnimationFrame(this.animateBackground.bind(this));
+  }
+
+  this.positionPlayerCar = function () {
+    var car = document.createElement('div');
+    car.setAttribute('class', 'player-car');
+    this.gameContainer.appendChild(car);
+    return car;
+  }
+
+}
+
+
+
+
+
+
+var startGameButton = document.getElementById('start-game');
+var gameContainer = document.getElementById('game-container');
+var scoreBoard = document.getElementById('score-board');
+var highestScore = document.getElementsByTagName('span')[0];
+new CarGame(startGameButton, gameContainer);
+

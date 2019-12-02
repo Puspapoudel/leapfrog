@@ -120,12 +120,12 @@
   
     var parentElement = document.getElementById('app');
     var game = new Game(parentElement, 5);
-game.startGame();
-console.log(game);      
+    game.startGame();
+    console.log(game);      
 
-var ants = parentElement.getElementsByTagName('div');
-for (var i = 0; i < ants.length; i++) {
-  ants[i].addEventListener('click', function (e) {
+    var ants = parentElement.getElementsByTagName('div');
+    for (var i = 0; i < ants.length; i++) {
+    ants[i].addEventListener('click', function (e) {
     e.preventDefault();
     var id = e.target.parentNode.getAttribute('id');
   
