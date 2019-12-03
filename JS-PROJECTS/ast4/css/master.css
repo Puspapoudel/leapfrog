@@ -11,7 +11,7 @@
 }
 .game-container{
     float: left;
-    width: 600px;
+    width: 500px;
     height: 640px;
     background: url("../images/background.png") repeat-y;
     position: relative;
@@ -63,4 +63,12 @@
     font-size: 20px;
     border: none;
     background: none;
+
+}
+
+.bullet{
+    position : absolute;
+    background: url('../images/bullet.png');
+    width : 30px;
+    height : 27px;
 }
