@@ -7,7 +7,7 @@ function CarGame(startGameButton, gameContainer, highestScore, scoreBoard) {
   this.playGame = null;
   this.highest = window.localStorage.getItem('highest') || 0;
   this.frames = 0;
-  this.countTime = 4;
+  this.countTime = 5;
   this.car;
   this.canPlayGame = false;
   this.opponentPositionArray = [110, 260, 410];
@@ -248,7 +248,7 @@ function SetUpGameContainer(gameContainer) {
   var position = 0;
 
   this.animateBackground = function () {
-    position += 2;
+    position += 4;
     this.gameContainer.style.backgroundPosition = '0 ' + position + 'px';// background (x position 0 and y vary accordingly)
     this.animationFrame = requestAnimationFrame(this.animateBackground.bind(this));
   }
