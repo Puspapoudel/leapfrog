@@ -36,7 +36,7 @@ document.addEventListener("keydown",moveUp);
 
 function moveUp(){
     bY -= 25;
-    fly.play();
+    
 }
 
 // pipe coordinates
@@ -70,7 +70,7 @@ function draw(){
             }); 
         }
 
-        // detect collision
+        // detct collision
         
         if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
             location.reload(); // reload the page
