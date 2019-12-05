@@ -33,7 +33,6 @@ var score = 0;
 // on key down
 
 document.addEventListener("keydown",moveUp);
-
 function moveUp(){
     bY -= 25;
     
@@ -93,6 +92,10 @@ function draw(){
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";
     ctx.fillText("Score : "+score,10,cvs.height-20);
+    // document.onclick=function()
+    // {
+    //     location.reload();
+    // }
     
     requestAnimationFrame(draw);
     
